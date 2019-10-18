@@ -1,21 +1,21 @@
 ﻿--MagicTheGathering Mana Tables
-	create schema magicthegathering;
+	--create schema magicthegathering;
 	
-		go
+		--go
 	
-		if object_id ('magicthegathering.manastate') is not null drop table magicthegathering.manastate;
+		/*if object_id ('magicthegathering.manastate') is not null drop table magicthegathering.manastate;
 
 			create table magicthegathering.manastate 
 				(
-					mana_colour varchar (10) not null references magicthegathering(manacolour),
+					mana_colour_id int not null foreign key references magicthegathering.manacolour(mana_colour_id),
 					mana_value int not null,
-				);
+				);*/
 	
 		if object_id ('magicthegathering.manastateaudit') is not null drop table magicthegathering.manastateaudit;
 
 			create table magicthegathering.manastateaudit 
 				(
-					mana_colour_id varchar (10) not null references magicthegathering(manacolour),
+					mana_colour_id int foreign key references magicthegathering.manacolour(mana_colour_id),
 					mana_value_addition int not null,
 					mana_datetime datetime not null unique
 				);
@@ -24,7 +24,7 @@
 
 			create table magicthegathering.manacolour
 				(
-					mana_colour_id int not null primary key identity, 
+					mana_colour_id int primary key, 
 					mana_colour varchar (10) not null unique
 				);
 	

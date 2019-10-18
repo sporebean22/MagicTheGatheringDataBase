@@ -3,13 +3,13 @@
 	
 		--go
 	
-		/*if object_id ('magicthegathering.manastate') is not null drop table magicthegathering.manastate;
+		if object_id ('magicthegathering.manastate') is not null drop table magicthegathering.manastate;
 
 			create table magicthegathering.manastate 
 				(
-					mana_colour_id int not null foreign key references magicthegathering.manacolour(mana_colour_id),
+					mana_colour_id int foreign key references magicthegathering.manacolour(mana_colour_id),
 					mana_value int not null,
-				);*/
+				);
 	
 		if object_id ('magicthegathering.manastateaudit') is not null drop table magicthegathering.manastateaudit;
 
